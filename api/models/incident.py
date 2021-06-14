@@ -7,7 +7,7 @@ class Incident:
     def __init__(self):
         self.db = Database()
 
-    def insert_incident(self, inc_type="red-flag", **kwargs):
+    def insert_incident(self, inc_type="Clientele", **kwargs):
         title = kwargs.get("title")
         comment = kwargs.get("comment")
         location = (kwargs.get("location")[0], kwargs.get("location")[1])
@@ -146,15 +146,15 @@ class Incident:
         sql = (
             "SELECT "
             "count (*) as total,"
-            "count(*) FILTER (WHERE type='red-flag') AS r_total,"
-            "count(*) FILTER (WHERE status = 'Draft' and type='red-flag') AS r_draft,"
-            "count(*) FILTER (WHERE status ='Under Investigation' and type='red-flag') as r_under_investigations, "
-            "count(*) FILTER (WHERE status ='Resolved' and type='red-flag') as r_resolved, "
-            "count(*) FILTER (WHERE status ='Rejected' and type='red-flag') as r_rejected, "
+            "count(*) FILTER (WHERE type='Clientele') AS r_total,"
+            "count(*) FILTER (WHERE status = 'Pending' and type='Clientele') AS r_Pending,"
+            "count(*) FILTER (WHERE status ='Closed' and type='Clientele') as r_Closed, "
+            "count(*) FILTER (WHERE status ='Approved' and type='Clientele') as r_Approved, "
+            "count(*) FILTER (WHERE status ='Rejected' and type='Clientele') as r_rejected, "
             "count(*) FILTER (WHERE type='intervention') AS i_total, "
-            "count(*) FILTER (WHERE status = 'Draft' and type='intervention') AS i_draft, "
-            "count(*) FILTER (WHERE status ='Under Investigation' and type='intervention') as i_under_investigations, "
-            "count(*) FILTER (WHERE status ='Resolved' and type='intervention') as i_resolved, "
+            "count(*) FILTER (WHERE status = 'Pending' and type='intervention') AS i_Pending, "
+            "count(*) FILTER (WHERE status ='Closed' and type='intervention') as i_Closed, "
+            "count(*) FILTER (WHERE status ='Approved' and type='intervention') as i_Approved, "
             "count(*) FILTER (WHERE status ='Rejected' and type='intervention') as i_rejected "
             "FROM public.incident_view "
 
@@ -168,18 +168,18 @@ class Incident:
         results = self.db.cursor.fetchone()
         statistics = {
             "total": results['total'],
-            "red-flags": {
+            "Clients": {
                 "total": results['r_total'],
-                "draft": results['r_draft'],
-                "under_investigations": results['r_under_investigations'],
-                "resolved": results['r_resolved'],
+                "Pending": results['r_Pending'],
+                "Closed": results['r_Closed'],
+                "Approved": results['r_Approved'],
                 "rejected": results['r_rejected']
             },
-            "interventions": {
+            "Sales": {
                 "total": results['i_total'],
-                "draft": results['i_draft'],
-                "under_investigations": results['i_under_investigations'],
-                "resolved": results['i_resolved'],
+                "Pending": results['i_Pending'],
+                "Closed": results['i_Closed'],
+                "Approved": results['i_Approved'],
                 "rejected": results['i_rejected']
             }
 

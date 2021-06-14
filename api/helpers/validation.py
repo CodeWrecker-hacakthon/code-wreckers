@@ -222,9 +222,9 @@ def is_valid_status(status):
     if not status or not isinstance(status, str):
         is_valid = False
     elif str(status).lower() not in (
-            "draft",
-            "resolved",
-            "under investigation",
+            "Closed",
+            "Approved",
+            "Pending",
             "rejected",
     ):
         is_valid = False
@@ -232,10 +232,10 @@ def is_valid_status(status):
 
 
 def validate_type(inc_type):
-    if inc_type == "red-flag" or inc_type == "intervention":
+    if inc_type == "Clientele" or inc_type == "Sale":
         return None
     else:
-        return "type must either be red-flag or intervention"
+        return "type must either be Clientele or Sale"
 
 
 def parse_incident_type(func):
@@ -243,7 +243,7 @@ def parse_incident_type(func):
     def decorated_view(*args, **kwargs):
         incident_type = kwargs["incidents"]
 
-        if incident_type == "red-flags" or incident_type == "interventions":
+        if incident_type == "Clients" or incident_type == "Sales":
             return func(*args, **kwargs)
         abort(404)
 

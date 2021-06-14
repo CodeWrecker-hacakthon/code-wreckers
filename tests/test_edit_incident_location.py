@@ -5,9 +5,9 @@ from .base import user2_header, user1_header
 
 
 # EDIT A RED-FLAG RECORD'S LOCATION
-def test_edit_a_red_flag_location_without_a_token(client):
+def test_edit_a_Clientele_location_without_a_token(client):
     response = client.patch(
-        "api/v2/red-flags/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
+        "api/v2/Clients/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
         data=json.dumps({"location": [12, 12]}),
     )
     assert response.status_code == 401
@@ -16,9 +16,9 @@ def test_edit_a_red_flag_location_without_a_token(client):
     assert data["error"] == auth_response
 
 
-def test_edit_a_red_flag_location_without_location_data(client):
+def test_edit_a_Clientele_location_without_location_data(client):
     response = client.patch(
-        "api/v2/red-flags/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
+        "api/v2/Clients/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
         headers=user1_header,
     )
     assert response.status_code == 400
@@ -27,9 +27,9 @@ def test_edit_a_red_flag_location_without_location_data(client):
     assert data["error"] == "Please provide valid input data"
 
 
-def test_edit_a_red_flag_location_which_does_not_exist(client):
+def test_edit_a_Clientele_location_which_does_not_exist(client):
     response = client.patch(
-        "api/v2/red-flags/10df0c37-5f2b-4e5d-8b45-7357bbf3bebb/location",
+        "api/v2/Clients/10df0c37-5f2b-4e5d-8b45-7357bbf3bebb/location",
         headers=user1_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -39,9 +39,9 @@ def test_edit_a_red_flag_location_which_does_not_exist(client):
     assert data["error"] == "red-flag record with specified id does not exist"
 
 
-def test_edit_a_red_flag_location_which_does_not_belong_to_user(client):
+def test_edit_a_Clientele_location_which_does_not_belong_to_user(client):
     response = client.patch(
-        "api/v2/red-flags/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
+        "api/v2/Clients/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
         headers=user2_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -51,9 +51,9 @@ def test_edit_a_red_flag_location_which_does_not_belong_to_user(client):
     assert data["error"] == "You are not allowed to modify this resource"
 
 
-def test_edit_a_red_flag_location_with_invalid_red_flag_id(client):
+def test_edit_a_Clientele_location_with_invalid_Clientele_id(client):
     response = client.patch(
-        "api/v2/red-flags/df/location",
+        "api/v2/Clients/df/location",
         headers=user2_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -63,9 +63,9 @@ def test_edit_a_red_flag_location_with_invalid_red_flag_id(client):
     assert data["error"] == "Invalid incident id"
 
 
-def test_edit_a_red_flag_location_status_of_draft(client):
+def test_edit_a_Clientele_location_status_of_draft(client):
     response = client.patch(
-        "api/v2/red-flags/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
+        "api/v2/Clients/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
         headers=user1_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -76,9 +76,9 @@ def test_edit_a_red_flag_location_status_of_draft(client):
     assert data["data"][0]["id"] == "10df0c67-5f2b-4e5d-8b45-7357bbf3bebb"
 
 
-def test_edit_a_red_flag_location_with_invalid_location_coordinates(client):
+def test_edit_a_Clientele_location_with_invalid_location_coordinates(client):
     response = client.patch(
-        "api/v2/red-flags/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
+        "api/v2/Clients/10df0c67-5f2b-4e5d-8b45-7357bbf3bebb/location",
         headers=user1_header,
         data=json.dumps({"location": [-90, 12]}),
     )
@@ -91,9 +91,9 @@ def test_edit_a_red_flag_location_with_invalid_location_coordinates(client):
     )
 
 
-def test_edit_a_red_flag_location_status_other_than_draft(client):
+def test_edit_a_Clientele_location_status_other_than_draft(client):
     response = client.patch(
-        "api/v2/red-flags/df57bf19-1495-40aa-bbc3-5cc792a8f8f2/location",
+        "api/v2/Clients/df57bf19-1495-40aa-bbc3-5cc792a8f8f2/location",
         headers=user1_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -103,10 +103,10 @@ def test_edit_a_red_flag_location_status_other_than_draft(client):
     assert data["error"] == "You are not allowed to modify this resource"
 
 
-# TEST EDIT INTERVENTION RECORD'S LOCATION
-def test_edit_a_intervention_location_without_a_token(client):
+# TEST EDIT Sale RECORD'S LOCATION
+def test_edit_a_Sale_location_without_a_token(client):
     response = client.patch(
-        "api/v2/interventions/79bb7006-272e-4e0c-8253-117305466b4a/location",
+        "api/v2/Sales/79bb7006-272e-4e0c-8253-117305466b4a/location",
         data=json.dumps({"location": [12, 12]}),
     )
     assert response.status_code == 401
@@ -115,9 +115,9 @@ def test_edit_a_intervention_location_without_a_token(client):
     assert data["error"] == auth_response
 
 
-def test_edit_a_intervention_location_without_location_data(client):
+def test_edit_a_Sale_location_without_location_data(client):
     response = client.patch(
-        "api/v2/interventions/79bb7006-272e-4e0c-8253-117305466b4a/location",
+        "api/v2/Sales/79bb7006-272e-4e0c-8253-117305466b4a/location",
         headers=user1_header,
     )
     assert response.status_code == 400
@@ -126,9 +126,9 @@ def test_edit_a_intervention_location_without_location_data(client):
     assert data["error"] == "Please provide valid input data"
 
 
-def test_edit_a_intervention_location_which_does_not_exist(client):
+def test_edit_a_Sale_location_which_does_not_exist(client):
     response = client.patch(
-        "api/v2/interventions/10df0c37-5f2b-4e5d-8b45-7357bbf3bebb/location",
+        "api/v2/Sales/10df0c37-5f2b-4e5d-8b45-7357bbf3bebb/location",
         headers=user1_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -136,13 +136,13 @@ def test_edit_a_intervention_location_which_does_not_exist(client):
     data = json.loads(response.data.decode())
     assert data["status"] == 404
     assert (
-        data["error"] == "intervention record with specified id does not exist"
+        data["error"] == "Sale record with specified id does not exist"
     )
 
 
-def test_edit_a_intervention_location_which_does_not_belong_to_user(client):
+def test_edit_a_Sale_location_which_does_not_belong_to_user(client):
     response = client.patch(
-        "api/v2/interventions/79bb7006-272e-4e0c-8253-117305466b4a/location",
+        "api/v2/Sales/79bb7006-272e-4e0c-8253-117305466b4a/location",
         headers=user2_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -152,9 +152,9 @@ def test_edit_a_intervention_location_which_does_not_belong_to_user(client):
     assert data["error"] == "You are not allowed to modify this resource"
 
 
-def test_edit_a_intervention_location_with_invalid_intervention_id(client):
+def test_edit_a_Sale_location_with_invalid_Sale_id(client):
     response = client.patch(
-        "api/v2/interventions/df/location",
+        "api/v2/Sales/df/location",
         headers=user2_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -164,9 +164,9 @@ def test_edit_a_intervention_location_with_invalid_intervention_id(client):
     assert data["error"] == "Invalid incident id"
 
 
-def test_edit_a_intervention_location_status_of_draft(client):
+def test_edit_a_Sale_location_status_of_draft(client):
     response = client.patch(
-        "api/v2/interventions/79bb7006-272e-4e0c-8253-117305466b4a/location",
+        "api/v2/Sales/79bb7006-272e-4e0c-8253-117305466b4a/location",
         headers=user1_header,
         data=json.dumps({"location": [12, 12]}),
     )
@@ -174,16 +174,16 @@ def test_edit_a_intervention_location_status_of_draft(client):
     data = json.loads(response.data.decode())
     assert data["status"] == 200
     assert (
-        data["data"][0]["success"] == "Updated intervention record’s location"
+        data["data"][0]["success"] == "Updated Sale record’s location"
     )
     assert data["data"][0]["id"] == "79bb7006-272e-4e0c-8253-117305466b4a"
 
 
-def test_edit_a_intervention_location_with_invalid_location_coordinates(
+def test_edit_a_Sale_location_with_invalid_location_coordinates(
     client
 ):
     response = client.patch(
-        "api/v2/interventions/79bb7006-272e-4e0c-8253-117305466b4a/location",
+        "api/v2/Sales/79bb7006-272e-4e0c-8253-117305466b4a/location",
         headers=user1_header,
         data=json.dumps({"location": [-90, 12]}),
     )
@@ -196,9 +196,9 @@ def test_edit_a_intervention_location_with_invalid_location_coordinates(
     )
 
 
-def test_edit_a_intervention_location_status_other_than_draft(client):
+def test_edit_a_Sale_location_status_other_than_draft(client):
     response = client.patch(
-        "api/v2/interventions/79bb7006-272e-4e0c-8253-117305466b7a/location",
+        "api/v2/Sales/79bb7006-272e-4e0c-8253-117305466b7a/location",
         headers=user1_header,
         data=json.dumps({"location": [12, 12]}),
     )

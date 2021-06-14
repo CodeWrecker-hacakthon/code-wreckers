@@ -1,9 +1,9 @@
 
 INSERT INTO users ( id,first_name, last_name, other_names, email, phone_number, user_name, user_password, is_admin)
 VALUES
-('9b8f5abb-d128-42a7-acf2-b460191d3896', 'Kalule','Arthur','', 'kalsmicireporter@gmail.com','0772019937','admin','pbkdf2:sha256:50000$oqmPo4Xk$5c18d9801c82702b9b69a9730e835831a3fa1e8de84ac720843bead2617e4940',TRUE),
-('6eb98d19-b89a-43d2-a8b4-e2be474bfc3f', 'userOne', 'userone','','userOne@ireporter.com','0773125678','user1','pbkdf2:sha256:50000$baKApXHV$6d1fb7908aa37a3f826d4d97f11f2c05e2f60effe973591b648a9244347bb59e',FALSE),
-('ed2d0e68-59b8-44cb-af2c-bb8c30e10c3c','userTwo','lastTwo','','usertwo@ireporter.com','0774551567','user2','pbkdf2:sha256:50000$kbsFShh0$b291746b1aa6ad4718a98f2cc18ba62c1b1a37ae3715512cc27edc81abc9cc67',FALSE);
+('9b8f5abb-d128-42a7-acf2-b460191d3896', 'admin','admin-password','', 'admin@gmail.com','0752030815','admin','pbkdf2:sha256:50000$oqmPo4Xk$5c18d9801c82702b9b69a9730e835831a3fa1e8de84ac720843bead2617e4940',TRUE),
+('6eb98d19-b89a-43d2-a8b4-e2be474bfc3f', 'userOne', 'userone','','userOne@ireporter.com','0770000000','user1','pbkdf2:sha256:50000$baKApXHV$6d1fb7908aa37a3f826d4d97f11f2c05e2f60effe973591b648a9244347bb59e',FALSE),
+('ed2d0e68-59b8-44cb-af2c-bb8c30e10c3c','userTwo','lastTwo','','usertwo@ireporter.com','0783485078','user2','pbkdf2:sha256:50000$kbsFShh0$b291746b1aa6ad4718a98f2cc18ba62c1b1a37ae3715512cc27edc81abc9cc67',FALSE);
 
 INSERT INTO incidents (id,title,comment, location,created_by,created_on,type,status)
 VALUES
@@ -14,8 +14,8 @@ VALUES
       (-44.000000,+174.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-01-03',
-      'red-flag',
-      'Draft'
+      'Clients',
+      'pending'
 ),
 (
       'df57bf19-1495-40aa-bbc3-5cc792a8f8f2',
@@ -24,8 +24,8 @@ VALUES
       (-43.000000,+144.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-01-03',
-      'red-flag',
-      'Resolved'
+      'Clients',
+      'Approved'
 ),
 (
       '79bb7006-272e-4e0c-8253-117305466b4a',
@@ -34,8 +34,8 @@ VALUES
       (-43.000000,+144.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-01-03',
-      'intervention',
-      'Draft'
+      'Sales',
+      'pending'
 ),
 (
       '79cc7006-272e-4e0c-8253-117305466b4a',
@@ -44,8 +44,8 @@ VALUES
       (-43.000000,+144.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-01-03',
-      'intervention',
-      'Draft'
+      'Sales',
+      'pending'
 ),
 (
       '79cc7006-224e-4e0c-8253-117305466b4a',
@@ -54,8 +54,8 @@ VALUES
       (-43.000000,+144.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-01-03',
-      'intervention',
-      'Resolved'
+      'Sales',
+      'Approved'
 ),
 (
       '79bb7006-272e-4e0c-8253-117305466b7a',
@@ -64,8 +64,8 @@ VALUES
       (-42.000000,+164.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-02-03',
-      'intervention',
-      'Resolved'
+      'Sales',
+      'Approved'
 ),
 (
       '79bb7006-272e-4e0c-8253-117305466b6a',
@@ -74,8 +74,8 @@ VALUES
       (-42.000000,+164.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-02-03',
-      'intervention',
-      'Draft'
+      'Sales',
+      'pending'
 ),
 (
       'b7e7ddf0-3bdb-4932-888d-e262a54bda6a',
@@ -84,8 +84,8 @@ VALUES
       (-23.000000,+134.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-01-05',
-      'red-flag',
-      'Draft'
+      'Clients',
+      'pending'
 ),
 (
       '68df1a76-80d0-4334-93f9-2f8d04a5ec8e',
@@ -94,7 +94,7 @@ VALUES
       (-33.000000,+124.400000),
       '6eb98d19-b89a-43d2-a8b4-e2be474bfc3f',
       '2019-01-04',
-      'red-flag',
-      'Draft'
+      'Clients',
+      'pending'
 );
 

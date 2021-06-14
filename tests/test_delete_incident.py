@@ -7,9 +7,9 @@ from .base import user2_header, user1_header
 # # DELETE A RED FLAG RECORD
 
 
-def test_delete_red_flag_without_a_access_token(client):
+def test_delete_Clientele_without_a_access_token(client):
     response = client.delete(
-        "api/v2/red-flags/68df1a76-80d0-4334-93f9-2f8d04a5ec8e"
+        "api/v2/Clients/68df1a76-80d0-4334-93f9-2f8d04a5ec8e"
     )
     assert response.status_code == 401
     data = json.loads(response.data.decode())
@@ -17,20 +17,20 @@ def test_delete_red_flag_without_a_access_token(client):
     assert data["error"] == auth_response
 
 
-def test_delete_red_flag_with_red_flag_id_which_does_not_exist(client):
+def test_delete_Clientele_with_Clientele_id_which_does_not_exist(client):
     # red flag id does not exist
     response = client.delete(
-        "api/v2/red-flags/68df1a76-80d0-4334-93f9-2f8d04a5ed8e",
+        "api/v2/Clients/68df1a76-80d0-4334-93f9-2f8d04a5ed8e",
         headers=user1_header,
     )
     assert response.status_code == 404
     data = json.loads(response.data.decode())
     assert data["status"] == 404
-    assert data["error"] == "red-flag record does not exist"
+    assert data["error"] == "Clientele record does not exist"
 
 
-def test_delete_red_flag_with_invalid_format_red_flag_id(client):
-    response = client.delete("api/v2/red-flags/fdf", headers=user1_header)
+def test_delete_Clientele_with_invalid_format_Clientele_id(client):
+    response = client.delete("api/v2/Clients/fdf", headers=user1_header)
 
     assert response.status_code == 400
     data = json.loads(response.data.decode())
@@ -38,9 +38,9 @@ def test_delete_red_flag_with_invalid_format_red_flag_id(client):
     assert data["error"] == "Invalid incident id"
 
 
-def test_delete_red_flag_for_another_user(client):
+def test_delete_Clientele_for_another_user(client):
     response = client.delete(
-        "api/v2/red-flags/68df1a76-80d0-4334-93f9-2f8d04a5ec8e",
+        "api/v2/Clients/68df1a76-80d0-4334-93f9-2f8d04a5ec8e",
         headers=user2_header,
     )
     assert response.status_code == 403
@@ -49,9 +49,9 @@ def test_delete_red_flag_for_another_user(client):
     assert data["error"] == "You are not allowed to delete this resource"
 
 
-def test_delete_red_flag_for_with_status_other_than_draft(client):
+def test_delete_Clientele_for_with_status_other_than_draft(client):
     response = client.delete(
-        "api/v2/red-flags/df57bf19-1495-40aa-bbc3-5cc792a8f8f2",
+        "api/v2/Clients/df57bf19-1495-40aa-bbc3-5cc792a8f8f2",
         headers=user1_header,
     )
     assert response.status_code == 403
@@ -62,23 +62,23 @@ def test_delete_red_flag_for_with_status_other_than_draft(client):
     )
 
 
-def test_delete_red_flag(client):
+def test_delete_Clientele(client):
     response = client.delete(
-        "api/v2/red-flags/68df1a76-80d0-4334-93f9-2f8d04a5ec8e",
+        "api/v2/Clients/68df1a76-80d0-4334-93f9-2f8d04a5ec8e",
         headers=user1_header,
     )
     assert response.status_code == 200
     data = json.loads(response.data.decode())
     assert data["status"] == 200
-    assert data["data"][0]["success"] == "red-flag record has been deleted"
+    assert data["data"][0]["success"] == "Clientele record has been deleted"
 
 
-def test_delete_an_intervention(client):
+def test_delete_an_Sale(client):
     response = client.delete(
-        "api/v2/interventions/79bb7006-272e-4e0c-8253-117305466b6a",
+        "api/v2/Sales/79bb7006-272e-4e0c-8253-117305466b6a",
         headers=user1_header,
     )
     assert response.status_code == 200
     data = json.loads(response.data.decode())
     assert data["status"] == 200
-    assert data["data"][0]["success"] == "intervention record has been deleted"
+    assert data["data"][0]["success"] == "Sale record has been deleted"

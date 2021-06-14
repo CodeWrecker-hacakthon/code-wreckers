@@ -32,21 +32,21 @@ user2_id = get_user_id("user2")
 user1_header = generate_token_header(encode_token(user1_id))
 user2_header = generate_token_header(encode_token(user2_id))
 
-new_red_flag = {
-    "title": "My First red flag",
+new_Clientele = {
+    "title": "My First client",
     "comment": "Lorem ipsum eiusmod temport labore et dolore magna",
     "location": [-80, -174.4],
-    "type": "red-flag",
+    "type": "Clientele",
 }
 
-new_intervention = {
-    "title": "Broken bridge",
+new_Sale = {
+    "title": "internet installation",
     "comment": (
         "Mi proin sed libero enim sed faucibus turpis in."
         "Adipiscing bibendum est ultricies integer quis auctor elit"
     ),
     "location": [-72, -154.4],
-    "type": "intervention",
+    "type": "Sale",
 }
 
 expired_token = encode(

@@ -30,12 +30,12 @@ BEGIN
      IF NOT EXISTS(SELECT 1 FROM pg_type WHERE typname ='incident_type') THEN
 
         CREATE TYPE incident_type AS ENUM
-        ('red-flag','intervention');
+        ('Clients','Sales');
     END IF;
     IF NOT EXISTS(SELECT 1 FROM pg_type WHERE typname ='incident_status') THEN
 
         CREATE TYPE incident_status AS ENUM
-        ('Draft','Under Investigation','Resolved','Rejected');
+        ('Closed','Approved','Pending','Rejected');
     END IF;
 
     IF NOT EXISTS(SELECT 1 FROM pg_type WHERE typname ='geo_coordinates') THEN
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS incidents
     location geo_coordinates NULL,
     created_by uuid,
     created_on  DATE DEFAULT CURRENT_TIMESTAMP,
-    status incident_status DEFAULT 'Draft',
+    status incident_status DEFAULT 'Pending',
     type incident_type NOT NULL,
     constraint fk_user_id
     foreign key (created_by)

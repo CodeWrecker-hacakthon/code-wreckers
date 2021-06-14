@@ -3,7 +3,7 @@ wrong_password = (
     " letter, atleast on lower case letter and  atleast one number."
 )
 
-wrong_status = "Status must either be 'resolved','under investigation','"
+wrong_status = "Status must either be 'Approved','Pending','"
 wrong_username = (
     "Username must be string with atleast 5 characters and may"
     " contain a number"
@@ -25,6 +25,6 @@ auth_response = (
 
 
 wrong_status = (
-    "Status must either be 'resolved','under investigation' or 'rejected'"
+    "Status must either be 'Approved','Pending' or 'rejected'"
 )
 delete_not_allowed = "You are not allowed to delete this resource"
