@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>japotech| Login</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="static/js/session.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+        <header >
+        
+            <nav>
+                <img src="/UI/static/img/logo001.png"/>
+                <ul>
+                    <li><a href="#home">QUALITY</a></li>
+    
+                </ul>
+            </nav>
+        </header>
+    <div class="main-page">
+        <div class="login-register-container border-round-lg">
+            <form class="vertical-form" name="login-form" action="#" onsubmit="login();return false">
+
+
+                <fieldset>
+                    <legend>Login Here!</legend>
+                    <img src="static/img/loading.svg" id="submit_progress" class="hide">
+
+                    <span class="error" id="error"></span>
+                    <span class="success" id="success"></span>
+                    <input type="text" id="username" placeholder='ENTER USERNAME' class="input-control" required>
+                    <input type="password" id="password" placeholder="ENTER PASSWORD"
+                           class="input-control" required>
+
+                    <input type="submit" class="btn bg-blue text-white btn-block" value="Login">
+
+                    <hr>
+                    <p class="text-blue">No Account yet! Contact the administrator</p>
+                    <!-- <a href='signup.html' class="btn btn-small text-white bg-green">Click here to sign up</a> -->
+                    
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <footer class="bg-white">
+
+        <div class="logo center">
+            <span><a href="#">www.japotech.com</a></span>
+
+        </div>
+
+    </footer>
+</div>
+</body>
+<script src="./static/js/login.js"></script>
+
+</html>

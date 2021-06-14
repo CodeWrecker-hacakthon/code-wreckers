@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | Edit Incident</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header >
+        
+            <nav>
+                <img src="/UI/static/img/logo001.png"/>
+                <ul>
+                    <li><a href="#home">QUALITY</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="main-page">
+            <div class="page-content-wrapper">
+                <div class="nav border-round-lg">
+                    <img src="/UI/static/img/logo001.png" style="width:100%; height:100%;"/>
+                    <h3 class="text-blue">Welcome <b id="sessionUserName">User</b></h3>
+                    <hr>
+    
+                    <ul class="menu border-radius-30p">
+                            <li class="menu_item">
+                                <a href="index.html" class="menu_link active">
+                                    <i class="fa fa-user" aria-hidden="true"> Dashboard</i>
+                                </a>
+                            </li>
+                            <li class="menu_item hideAdmin">
+                                <a href="create.html" class="menu_link">
+                                    <i class="fa fa-plus" aria-hidden="true"> Add New Record</i>
+                                </a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="records.html?type=red-flags" class="menu_link">
+                                    <i class="fa fa-eye" aria-hidden="true"> List all Clients</i>
+                                </a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="records.html?type=interventions" class="menu_link">
+                                    <i class="fa fa-eye" aria-hidden="true"> List all Sales</i>
+                                </a>
+                            </li>
+    
+                            <li class="menu_item">
+                                <a href="records.html?type=interventions" class="menu_link">
+                                    <i class="fa fa-eye" aria-hidden="true"> Reports</i>
+                                </a>
+                            </li>
+    
+                            <li class="menu_item">
+                                <a href="#" class="menu_link" onclick="logOut()">
+                                    <i class="fa fa-unlock" aria-hidden="true"> Log out</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                <div class="page-content  border-round-lg">
+                    <h3 class="text-blue">Edit Incident Record</h3>
+                    <hr>
+
+                    <form class="form-control" action="profile.html">
+                        <label for="edit-status">Status : </label>
+                        <select>
+                            <option value="draft">Pending</option>
+                            <option value="under investigations">Closed</option>
+                            <option value="Rejected"> Rejected</option>
+                            <option value="Resolved">Approved</option>
+                        </select>
+
+                        <label for="details">Description </label>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, turpis eu
+                            pulvinar sollicitudin, odio arcu ornare nibh, sed posuere sem tortor quis nulla. Praesent
+                            euismod dui eu tellus imperdiet, quis rhoncus arcu fringilla. Fusce dapibus ex sit amet
+                            neque finibus, ac consectetur leo porttitor. Quisque sit amet felis sed nunc pharetra
+                            viverra mattis tempus elit. Aliquam a lectus aliquet, sodales est sed, sagittis lorem.
+                            Donec eu erat finibus, consectetur velit ut, pulvinar nibh. Class aptent taciti sociosqu ad
+                            litora torquent per conubia nostra, per inceptos himenaeos. Nunc eu orci est. Integer nec
+                            scelerisque eros, a rutrum mauris.
+                        </div>
+                        <label>Geo Cordinates</label>
+                        <input type="text" disabled id="set_location" placeholder="Latitude : 0.6434949729210132 Longitude : 32.20169254807706">
+
+                        <label>Location Coordinates: </label>
+                        <div id="googleMap" class="map-pct-50"></div>
+                        <input type="submit" value="Update Status" class="btn bg-green text-white">
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <footer class="bg-blue">
+
+            <div class="logo">
+                <span>i</span>
+                <span>R</span>
+                <span>e</span>
+                <span>p</span>
+                <span>o</span>
+                <span>r</span>
+                <span>t</span>
+                <span>e</span>
+                <span>r</span>
+            </div>
+
+        </footer>
+    </div>
+</body>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+
+<script src="../static/js/googlemaps.js"></script>
+</html>

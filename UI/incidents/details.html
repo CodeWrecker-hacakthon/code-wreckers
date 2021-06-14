@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | Details</title>
+    <script src="../static/js/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+          crossorigin="anonymous">
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+
+
+
+</head>
+
+<body>
+<div class="wrapper">
+    <header >
+        
+        <nav>
+            <img src="/UI/static/img/logo001.png"/>
+            <ul>
+                <li><a href="#home">QUALITY</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-page">
+        <div class="page-content-wrapper">
+            <div class="nav border-round-lg">
+                <img src="/UI/static/img/logo001.png" style="width:100%; height:100%;"/>
+                <h3 class="text-blue">Welcome <b id="sessionUserName">User</b></h3>
+                <hr>
+
+                <ul class="menu border-radius-30p">
+                        <li class="menu_item">
+                            <a href="index.html" class="menu_link active">
+                                <i class="fa fa-user" aria-hidden="true"> Dashboard</i>
+                            </a>
+                        </li>
+                        <li class="menu_item hideAdmin">
+                            <a href="create.html" class="menu_link">
+                                <i class="fa fa-plus" aria-hidden="true"> Add New Record</i>
+                            </a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="records.html?type=red-flags" class="menu_link">
+                                <i class="fa fa-eye" aria-hidden="true"> List all Clients</i>
+                            </a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="records.html?type=interventions" class="menu_link">
+                                <i class="fa fa-eye" aria-hidden="true"> List all Sales</i>
+                            </a>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="records.html?type=interventions" class="menu_link">
+                                <i class="fa fa-eye" aria-hidden="true"> Reports</i>
+                            </a>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="#" class="menu_link" onclick="logOut()">
+                                <i class="fa fa-unlock" aria-hidden="true"> Log out</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            <div class="page-content border-round-lg hide" id="incidents_output">
+
+
+                <h3 class="text-blue wrap_content" id="incident_type">View Incident Details page</h3>
+
+
+                <hr>
+                <section class="flex-col-sp-btn border-radius-30p border-round-lg">
+                    <h2 id="incident_title">What happened?</h2>
+
+                    <span class="text-blue" id="created_on"><b><i>Date:</i> </b> </span>
+                    <div class="flex-row-sp-btn">
+
+
+                            <span class="text-lblack" id="created_by">
+                                <img class="bg-blue  img-circle-small" src="../static/img/profile-pics/user1.png">User
+
+                            </span>
+                    </div>
+                    <div class="flex-row-sp-btn"><b>COMMENT : </b>
+                        <p id="incident_comment"  class="wrap_content" contenteditable="false">A description oeef what happened!</p>
+                        <button class="hide" id='updateCommentBtn'>Save Changes</button>
+                        <button class="hideAdmin" id='editCommentBtn'>Edit comment</button>
+                        <button class="hide" id='cancelEditCommentBtn'>Cancel</button>
+                        <span class="success" id="commentMessage"></span>
+                        <span class="error" id="commentError"></span>
+
+                        <div class="text-orange" id="statusField">status:<b id="incident_status"></b></div>
+                        <button class="showAdmin" id='editStatusBtn'>Edit status</button>
+                        <button class="hide" id='updateStatusBtn'>Save Changes</button>
+                        <button class="hide" id='cancelEditStatusBtn'>Cancel</button>
+                        <span class="success" id="statusMessage"></span>
+                        <span class="error" id="statusError"></span>
+
+
+                    </div>
+                    <br/>
+
+                    <span class="success" id="locationMessage"></span>
+                    <span class="error" id="locationError"></span>
+                    <div id="googleMap" class="map-pct-80"></div>
+                    <br/>
+                    <button class="hideAdmin" id='editLocationBtn'>Edit Location</button>
+                    <button class="hide" id='updateLocationBtn'>Save Changes</button>
+                    <button class="hide" id='cancelEditLocationBtn'>Cancel</button>
+
+
+                    <div class="flex-row-sp-btn hideAdmin" id="delete_incident">
+
+                    </div>
+                    <div class="flex-row-sp-btn" id="serve_images">
+
+                    </div>
+                    <div class="flex-row-sp-btn hideAdmin" id="add_image">
+                        <span class="text-blue">Add image</span>
+
+                        <form enctype="multipart/form-data" action="#" onsubmit="uploadImage(); return false">
+                            <input type='file' id="image"  accept="image/*" />
+
+                            <br/><img id="myImg" src="#" alt="" height=200 width=100>
+                            <span id="image_error" class="error">s</span>
+                            <img src="../static/img/progress.svg"  id="progress_img" class="hide">
+                            <button type="submit" id="upload_image">upload Image</button>
+                        </form>
+                    </div>
+
+                    <div class="flex-row-sp-btn" id="serve_videos">
+
+
+                    </div>
+
+                    <div class="flex-row-sp-btn hideAdmin" id="add_video">
+                        <span class="text-blue">Add Video</span>
+
+                        <form enctype="multipart/form-data" action="#" onsubmit="uploadVideo(); return false">
+                            <input type='file' id="video"  accept="video/*" />
+
+                            <br/>
+                            <video width="320" height="240" id="myVideo" class="hide" controls>
+                            </video>
+                            <span id="video_error" class="error"></span>
+                            <img src="../static/img/progress.svg"  id="progress_video" class="hide">
+                            <button type="submit" id="upload_video">upload Video</button>
+                        </form>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-white">
+
+    <div class="logo center">
+        <span><a href="#">www.japotech.com</a></span>
+
+    </div>
+
+</footer>
+
+</body>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
+<!--[if lt IE 9]>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.ie.css' rel='stylesheet' />
+<![endif]-->
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
+<script src="../static/js/incident_details.js"></script>
+
+<script src="../static/js/incident_details_map.js"></script>
+<script src="../static/js/media_upload.js"></script>
+
+
+</html>

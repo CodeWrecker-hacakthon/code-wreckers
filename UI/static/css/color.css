@@ -1,0 +1,21 @@
+/* colors */
+:root {
+    --white: #ffffff;
+    --gray:#f0f8ff;
+    --red: #ff6347;
+    --pink:#dd33c733;
+    --green: #59971f;
+    --orange: #d4b03f;
+    --blue: #006899;
+    --black: #222222;
+    --beige:#f5f5dc;
+  
+    --light_red: #D43F3F;
+    --light_green: #a2dd3333;
+    --light_orange: #d4b03f;
+    --light_yellow:#ddcc3333;
+    --light_blue: #333ddd33;
+    --light_black: #404040;
+    --background:#F1F1F1;
+    --page_background :#FFFFFF;
+  }

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iReporter | + Incident</title>
+    <script src="../static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+          crossorigin="anonymous">
+
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+
+
+</head>
+
+<body>
+<div class="wrapper">
+    <header >
+        
+        <nav>
+            <img src="/UI/static/img/logo001.png"/>
+            <ul>
+                <li><a href="#home">QUALITY</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-page">
+        <div class="page-content-wrapper">
+            <div class="nav border-round-lg">
+                <img src="/UI/static/img/logo001.png" style="width:100%; height:100%;"/>
+                <h3 class="text-blue">Welcome <b id="sessionUserName">User</b></h3>
+                <hr>
+
+                <ul class="menu border-radius-30p">
+                        <li class="menu_item">
+                            <a href="index.html" class="menu_link active">
+                                <i class="fa fa-user" aria-hidden="true"> Dashboard</i>
+                            </a>
+                        </li>
+                        <li class="menu_item hideAdmin">
+                            <a href="create.html" class="menu_link">
+                                <i class="fa fa-plus" aria-hidden="true"> Add New Record</i>
+                            </a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="records.html?type=red-flags" class="menu_link">
+                                <i class="fa fa-eye" aria-hidden="true"> List all Clients</i>
+                            </a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="records.html?type=interventions" class="menu_link">
+                                <i class="fa fa-eye" aria-hidden="true"> List all Sales</i>
+                            </a>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="records.html?type=interventions" class="menu_link">
+                                <i class="fa fa-eye" aria-hidden="true"> Reports</i>
+                            </a>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="#" class="menu_link" onclick="logOut()">
+                                <i class="fa fa-unlock" aria-hidden="true"> Log out</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            <div class="page-content border-round-lg" id="create_record">
+                <h3 class="text-blue form-title">Add new record</h3>
+                <hr>
+                <form class="form-control" action="#" onsubmit="createIncident(); return false">
+                    <label for="incident_type">Type of Record : </label>
+                    <select id="incident_type" required>
+                        <option value="">Please Select record type</option>
+                        <option value="red-flag">Client</option>
+                        <option value="intervention">Sales</option>
+                    </select>
+
+                    <label for="incident_title">Detail</label>
+                    <input type="text" id="incident_title" placeholder="(client:Name.email,tel), (sales:generated sale)" required>
+                    <span class="error" id="title-error"></span>
+
+
+                    <label for="comment">Description</label>
+                    <textarea id="comment" placeholder="short description" 
+                              maxlength="800" required></textarea>
+                    <span class="error" id="comment-error"></span>
+
+
+                    <label>Geo Coordinates</label>
+                    <input type="text" disabled id="set_location" placeholder="PICK A LOCATION FROM THE MAP" required>
+                    <span class="error" id="location-error"></span>
+
+                    <label>Location Coordinates: </label>
+                    <div id="googleMap" style="height: 400px; width:100%"></div>
+                    <span></span>
+
+                    <img src="../static/img/loading.svg" id="submit_progress" class="hide">
+
+                    <input type="submit" value="Add New Record" class="btn bg-green text-white">
+                    <span></span>
+                    <span class="success" id="success_msg"></span>
+
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <footer class="bg-white">
+        <div class="logo center">
+            <span><a href="#">www.japotech.com</a></span>
+
+        </div>
+    </footer>
+</div>
+</body>
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
+<!--[if lt IE 9]>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.ie.css' rel='stylesheet' />
+<![endif]-->
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
+
+<script src="../static/js/googlemaps.js"></script>
+<script src="../static/js/create_incident.js"></script>
+
+</html>
