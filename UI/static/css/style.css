@@ -3,7 +3,12 @@
 @import "button.css";
 
 body {
-    background: #94e612;
+    /* background: #94e612; */
+    background-image:url("/UI/static/img/bg1.png") ; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
 }
 
 * {
@@ -12,6 +17,7 @@ body {
 
 .wrapper {
     margin: 0 auto;
+    
 }
 
 .wrapper {
@@ -19,6 +25,8 @@ body {
     grid-template-areas: "header""main-page""footer";
     grid-gap: 20px;
     min-height: 100vh;
+   
+   
 }
 
 header {
@@ -116,12 +124,46 @@ footer {
 .main-page {
     grid-area: main-page;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .login-register-container {
-    grid-column: 2/3;
+    grid-column: 2/2;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+   
 }
+
+.column-container .column-right{
+    grid-column: 1/2;
+    text-align: center;
+    margin-top:15%;
+    
+
+}
+
+.column-container{
+    /* background-image: url("/UI/static/img/micro.png");
+    background-size: cover; */
+    /* border: 2px solid black; */
+    margin-left: 10%;
+    width: 100%;
+    opacity:0.8;
+    background-position: fixed;
+}
+
+.column-container h1{
+    margin: 30px;
+  background-color: #ffffff;
+ 
+  /* border: 1px solid black; */
+  /* opacity: 0.6; */
+  font-weight: bolder;
+}
+
+
+
 
 .page-content-wrapper {
     grid-column: 1/4;
@@ -203,7 +245,7 @@ input:required:valid {
 @media screen and (min-width:500px) {
 
     .wrapper {
-        background: #89c921;
+        /* background: #89c921; */
     }
 
     .menu {
