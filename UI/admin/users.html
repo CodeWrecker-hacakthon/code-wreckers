@@ -1,0 +1,99 @@
+<!-- users page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japotech | Users</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+          crossorigin="anonymous">
+    <script src="../static/js/main.js"></script>
+
+</head>
+
+<!--<body onload="getUserInfo()">-->
+<body>
+<div class="wrapper">
+    <header >
+        
+        <nav>
+            <img src="/UI/static/img/logo001.png"/>
+            <!-- <ul>
+                <li><a href="#home">QUALITY</a></li>
+            </ul> -->
+        </nav>
+    </header>
+    <div class="main-page">
+        <div class="page-content-wrapper">
+            <div class="nav border-round-lg">
+                <img src="/UI/static/img/logo001.png" style="width:100%; height:100%;"/>
+                <h3 class="text-blue">Welcome <b id="sessionUserName">Admin</b></h3>
+                <hr>
+
+                <ul class="menu border-radius-30p">
+                    <li class="menu_item">
+                        <a href="profile.html" class="menu_link active">
+                            <i class="fa fa-user" aria-hidden="true"> Dashboard</i>
+                        </a>
+                    </li>
+
+                    <li class="menu_item">
+                        <a href="signup.html" class="menu_link active">
+                            <i class="fa fa-user" aria-hidden="true"> Add New User</i>
+                        </a>
+                    </li>
+
+                    
+
+                    <li class="menu_item">
+                        <a href="users.html" class="menu_link active">
+                            <i class="fa fa-user" aria-hidden="true"> List all Users</i>
+                        </a>
+                    </li>
+
+                    <li class="menu_item">
+                        <a href="view_red-flags.html" class="menu_link">
+                            <i class="fa fa-eye" aria-hidden="true"> View all Clients</i>
+                        </a>
+                    </li>
+                    <li class="menu_item">
+                        <a href="view_interventions.html" class="menu_link">
+                            <i class="fa fa-eye" aria-hidden="true">View all sales</i>
+                        </a>
+                    </li>
+                    <li class="menu_item">
+                        <a href="../index.html" class="menu_link">
+                            <i class="fa fa-unlock" aria-hidden="true"> Log out</i>
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            <div class="page-content  border-round-lg">
+                  <span class="dashboard-title">
+                        <h3 class="text-blue">Users <span id="no_users"></span></h3>
+                      <hr/>
+                  </span>
+                <div class="users" id="users_list">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="bg-white">
+
+        <div class="logo center">
+            <span><a href="#">www.japotech.com</a></span>
+
+        </div>
+
+    </footer>
+
+</div>
+</body>
+<script src="../static/js/users_list.js"></script>
+
+</html>

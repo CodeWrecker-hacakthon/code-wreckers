@@ -21,33 +21,33 @@ fetch("https://ireporterapiv3.herokuapp.com/api/v2/statistics", {
             sessionStorage.setItem('iRUsers', incidents["users"]);
             document.getElementById('red-flags').innerHTML = `
                 <h3 class="text-red">
-                    <i class="fa fa-flag text-lred" aria-hidden="true">&nbsp;</i>
-                        Red-flags (${incidents['red-flags']['total']})
+                    <i class="fa fa-user text-lred" aria-hidden="true">&nbsp;</i>
+                        Clients (${incidents['red-flags']['total']})
                 </h3>
                 <div class="dashboard-items">
                     <div class="dash bg-lyellow text-orange">
                         <div class="dash-stat bg-orange">${incidents['red-flags']['draft']}
                         </div>
                         <a href="records.html?type=red-flags&&status=draft">
-                            <div>Draft</div>
+                            <div>Prospecting</div>
                         </a>
                     </div>
                     <div class="dash bg-lblue text-blue">
                     <div class="dash-stat bg-blue">${incidents['red-flags']['under_investigations']}</div>
                     <a href="records.html?type=red-flags&&status=under_investigation">
-                        <div> Under Investigation</div>
+                        <div> Meeting</div>
                     </a>
                 </div>
                 <div class="dash bg-lgreen text-green">
                     <div class="dash-stat bg-green">${incidents['red-flags']['resolved']}</div>
                     <a href="records.html?type=red-flags&&status=resolved">
-                        <div>Resolved</div>
+                        <div>Negotiating</div>
                     </a>
                     </div>
                     <div class="dash bg-pink text-red">
                       <div class="dash-stat bg-red">${incidents['red-flags']['rejected']}</div>
                       <a href="records.html?type=red-flags&&status=rejected">
-                        <div>Rejected</div>
+                        <div>Closing</div>
                       </a>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ fetch("https://ireporterapiv3.herokuapp.com/api/v2/statistics", {
             document.getElementById('interventions').innerHTML = `
                 <h3 class="text-green">
                     <i class="fa fa-cubes text-green" aria-hidden="true">&nbsp;</i>
-                    Interventions (${incidents['interventions']['total']})
+                   Sales (${incidents['interventions']['total']})
                 </h3>
 
                 <div class="dashboard-items">
@@ -63,19 +63,19 @@ fetch("https://ireporterapiv3.herokuapp.com/api/v2/statistics", {
                         <div class="dash-stat bg-orange">${incidents['interventions']['draft']}</div>
                         <a href="records.html?type=interventions&&status=draft">
 
-                            <div>Draft</div>
+                            <div>Pending</div>
                         </a>
                     </div>
                     <div class="dash bg-lblue text-blue">
                         <div class="dash-stat bg-blue">${incidents['interventions']['under_investigations']}</div>
                         <a href="records.html?type=interventions&&status=under_investigation">
-                            <div>Under Investigation</div>
+                            <div>Closed</div>
                         </a>
                     </div>
                     <div class="dash bg-lgreen text-green">
                         <div class="dash-stat bg-green">${incidents['interventions']['resolved']}</div>
                         <a href="records.html?type=interventions&&status=resolved">
-                            <div>Resolved</div>
+                            <div>Approved</div>
                         </a>
                     </div>
                     <div class="dash bg-pink text-red">

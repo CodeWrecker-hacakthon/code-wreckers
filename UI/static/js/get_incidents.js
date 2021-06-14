@@ -34,7 +34,7 @@ function getIncidents(incidentType, status = "") {
                 //on success
                 let incidents = data["data"];
                 let output = `
-                <h3 class="text-blue">View ${incidentType} page</h3>
+                <h3 class="text-blue">View Record </h3>
                 <hr>
                `;
 
@@ -43,7 +43,7 @@ function getIncidents(incidentType, status = "") {
                         output += `
                             
                             <section class="flex-col-sp-btn border-radius-30p border-round-lg">
-                                    <h2>No  ${incidentType} records are ${incidentStatus.replace("_", " ")} !</h2>
+                                    <h2>No records are ${incidentStatus.replace("_", " ")} !</h2>
                                   
                             </section>
                         `;
@@ -51,7 +51,7 @@ function getIncidents(incidentType, status = "") {
                         output += `
                             
                             <section class="flex-col-sp-btn border-radius-30p border-round-lg">
-                                    <h2>No  ${incidentType} records are available !</h2>
+                                    <h2>No records are available !</h2>
                                   
                             </section>
                             

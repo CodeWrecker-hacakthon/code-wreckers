@@ -42,7 +42,7 @@ function getIncident(incidentType, incidentId) {
                 document.getElementById("created_on").innerHTML = `
                     <b><i>Date:</i> </b> ${incident.created_on.substring(0, 17)}`;
                 document.getElementById("incident_title").innerHTML = incident.title;
-                document.getElementById("incident_type").innerHTML = "View " + incident.type + " Details page";
+                document.getElementById("incident_type").innerHTML = "View " + " Details page";
                 document.getElementById("incident_comment").innerHTML = incident.comment;
                 document.getElementById("created_by").innerHTML = `
                     <img class="bg-blue  img-circle-small" src="../static/img/profile-pics/user1.png">${incident.owner}

@@ -3,7 +3,7 @@
 @import "button.css";
 
 body {
-    background: #AFD275;
+    background: #94e612;
 }
 
 * {
@@ -23,8 +23,13 @@ body {
 
 header {
     grid-area: header;
-    height: 70px;
+    height: 50px;
     /* background: #AFD275; */
+}
+
+header img{
+    margin-left: 50%;
+
 }
 
 nav {
@@ -48,9 +53,7 @@ nav {
     text-decoration: none;
     transition: background-color 0.3s ease;
   }
-  nav ul a:hover {
-    background-color: #f09;
-  }
+ 
 
  /* nav {
     position: fixed;
@@ -200,7 +203,7 @@ input:required:valid {
 @media screen and (min-width:500px) {
 
     .wrapper {
-        background: #AFD275;
+        background: #89c921;
     }
 
     .menu {
@@ -258,7 +261,7 @@ input:required:valid {
 
     .page-content {
         grid-area: main;
-        background: #AFD275;
+        background: 89c921;
     }
 
     .profile {
@@ -291,7 +294,7 @@ input:required:valid {
 }
 
 .border-round-lg {
-    border-radius: 32px;
+    /* border-radius: 3px; */
     background: white;
     padding: 20px;
 }
