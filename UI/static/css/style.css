@@ -130,17 +130,16 @@ footer {
 .login-register-container {
     grid-column: 2/2;
     margin-left: 10%;
-    margin-right: 10%;
-    
+    margin-right: 10%;  
    
 }
+
+
 
 .column-container .column-right{
     grid-column: 1/2;
     text-align: center;
     margin-top:15%;
-    
-
 }
 
 .column-container{

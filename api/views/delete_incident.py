@@ -31,7 +31,7 @@ def delete_record(incidents, incident_id):
             jsonify(
                 {
                     "status": 404,
-                    "error": incident_type + " record does not exist",
+                    "error": " record does not exist",
                 }
             ),
             404,
@@ -53,8 +53,7 @@ def delete_record(incidents, incident_id):
                     "data": [
                         {
                             "incident": delete_id,
-                            "success": incident_type
-                            + " record has been deleted",
+                            "success": " record has been deleted",
                         }
                     ],
                 }
