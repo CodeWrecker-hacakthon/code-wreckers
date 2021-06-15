@@ -119,7 +119,7 @@ function createIncident() {
                 document.getElementById('success_msg').style.display = "block";
                 document.getElementById('success_msg').innerHTML = `Successfully ${successMsg} !`;
                 window.setTimeout(function () {
-                    window.location.replace(`./details.html&id=${newRecord.id}`);
+                    window.location.replace(`./details.html?&id=${newRecord.id}`);
                 }, 1000);
 
 
