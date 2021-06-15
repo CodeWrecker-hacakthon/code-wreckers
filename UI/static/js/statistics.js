@@ -20,8 +20,8 @@ fetch("https://ireporterapiv3.herokuapp.com/api/v2/statistics", {
 
             sessionStorage.setItem('iRUsers', incidents["users"]);
             document.getElementById('red-flags').innerHTML = `
-                <h3 class="text-red">
-                    <i class="fa fa-user text-lred" aria-hidden="true">&nbsp;</i>
+                <h3 class="text-green">
+                    <i class="fa fa-user text-green" aria-hidden="true">&nbsp;</i>
                         Clients (${incidents['red-flags']['total']})
                 </h3>
                 <div class="dashboard-items">

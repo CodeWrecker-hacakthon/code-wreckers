@@ -352,7 +352,7 @@ input:required:valid {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    border-radius: 25% 10%;
+    /* border-radius: 25% 10%; */
 }
 
 .dashboard-right {
